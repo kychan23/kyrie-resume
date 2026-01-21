@@ -31,6 +31,7 @@
             --meme-yellow: #ffd700;
             --meme-pink: #ff6b9d;
             --meme-blue: #5d8eff;
+            --linkedin-blue: #0A66C2;
         }
         
         body {
@@ -427,6 +428,60 @@
             color: var(--text-secondary);
         }
         
+        /* LinkedIn Experience Note */
+        .linkedin-note {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: rgba(10, 102, 194, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(10, 102, 194, 0.3);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .linkedin-note:hover {
+            background-color: rgba(10, 102, 194, 0.15);
+            border-color: rgba(10, 102, 194, 0.5);
+            transform: translateY(-3px);
+        }
+        
+        .linkedin-note h3 {
+            color: var(--linkedin-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .linkedin-note p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--linkedin-blue);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .linkedin-btn:hover {
+            background-color: #004182;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
         /* Combined Terminal (QA Memes Only) */
         .combined-terminal-section {
             background-color: var(--secondary-dark);
@@ -622,15 +677,53 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background-color: var(--tertiary-dark);
             color: var(--text-secondary);
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
         
-        .social-links a:hover {
+        .social-links a.linkedin {
+            background-color: var(--linkedin-blue);
+            color: white;
+        }
+        
+        .social-links a.github {
+            background-color: var(--tertiary-dark);
+            color: var(--text-secondary);
+        }
+        
+        .social-links a.linkedin:hover {
+            background-color: #004182;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(10, 102, 194, 0.3);
+        }
+        
+        .social-links a.github:hover {
             background-color: var(--apple-blue);
             color: white;
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 122, 255, 0.3);
+        }
+        
+        .social-links a .tooltip {
+            position: absolute;
+            bottom: -40px;
+            background-color: var(--tertiary-dark);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: all 0.3s;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        .social-links a:hover .tooltip {
+            opacity: 1;
+            bottom: -35px;
         }
         
         .copyright {
@@ -672,6 +765,10 @@
             .hero .subtitle {
                 font-size: 1.2rem;
             }
+            
+            .linkedin-note {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -690,6 +787,7 @@
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#experience">Experience</a></li>
+                    <li><a href="#combined-terminal">QA Memes</a></li>
                 </ul>
             </nav>
         </div>
@@ -700,12 +798,12 @@
         <div class="container hero-content">
             <div class="hero-text">
                 <h1>Kyrie Gean <span>Camacho</span></h1>
-                <div class="subtitle">Senior QA Engineer | Automation Test Engineer</div>
+                <div class="subtitle">Senior QA Engineer | Kick </div>
                 <div class="location">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Melbourne, Australia | Startups & Tech Companies</span>
+                    <span>Melbourne, Australia</span>
                 </div>
-                <p>QA engineer with a focus on application quality through comprehensive testing practices and improving release flows through test automation and CI/CD implementation in agile environments.</p>
+                <p>QA Engineer driving application quality with thorough testing practices, streamlining release flows through test automation and CI/CD in agile environments.</p>
                 <div>
                     <a href="#experience" class="btn">View Experience</a>
                 </div>
@@ -793,7 +891,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Work Experience</h2>
-                <p class="section-subtitle">My professional journey presented as a terminal session.</p>
+                <p class="section-subtitle">Discover my career and QA expertise through a terminal-style interface 📟</p>
             </div>
             
             <div class="experience-terminal-container">
@@ -807,6 +905,16 @@
                 <div class="experience-terminal-body" id="experience-terminal">
                     <!-- Experience will be dynamically added here -->
                 </div>
+                
+                <!-- LinkedIn Experience Note -->
+                <div class="linkedin-note">
+                    <h3><i class="fab fa-linkedin"></i> View Full Experience on LinkedIn</h3>
+                    <p>This portfolio shows my most recent roles. For a complete overview, please visit my LinkedIn profile.</p>
+                    <a href="https://www.linkedin.com/in/kyrie-gean-camacho/" target="_blank" rel="noopener noreferrer" class="linkedin-btn">
+                        <i class="fab fa-linkedin"></i>
+                        View Complete Experience
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -815,8 +923,8 @@
     <section id="combined-terminal">
         <div class="container">
             <div class="section-title">
-                <h2>🤖 Automation — Run, Test, Laugh</h2>
-                <p class="section-subtitle">QA humor presented as Playwright test specs. <span class="spec-counter" id="spec-counter">Spec 1/10</span></p>
+                <h2>QA Meme Caught In Terminal</h2>
+                <p class="section-subtitle">Where testing meets humor and bugs get a punchline 🐞💡 <span class="spec-counter" id="spec-counter">Spec 1/10</span></p>
             </div>
             
             <div class="combined-terminal-section">
@@ -840,20 +948,19 @@
     <!-- Footer -->
     <footer>
         <div class="container footer-content">
-            <div class="logo">
-                <i class="fas fa-bug"></i>
-                <span class="logo-text">Kyrie Gean Camacho</span>
-            </div>
-            
-            <p>Senior QA Engineer specializing in test automation and agile testing practices.</p>
-            
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/kyrie-gean-camacho/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/kychan23" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kyrie-gean-camacho/" target="_blank" rel="noopener noreferrer" class="linkedin">
+                    <i class="fab fa-linkedin-in"></i>
+                    <span class="tooltip">View full experience on LinkedIn</span>
+                </a>
+                <a href="https://github.com/kychan23" target="_blank" rel="noopener noreferrer" class="github">
+                    <i class="fab fa-github"></i>
+                    <span class="tooltip">View my GitHub projects</span>
+                </a>
             </div>
             
             <div class="copyright">
-                &copy; 2023 Kyrie Gean Camacho. All rights reserved.
+                &copy; Kyrie QA. All rights reserved.
             </div>
         </div>
     </footer>
@@ -873,7 +980,7 @@
                     } 
                 },
                 color: { 
-                    value: ["#58a6ff", "#9d7bff", "#007AFF", "#7ee787", "#ffd700", "#ff6b9d"] 
+                    value: ["#58a6ff", "#9d7bff", "#007AFF", "#7ee787", "#ffd700", "#ff6b9d", "#0A66C2"] 
                 },
                 shape: { 
                     type: "circle" 
@@ -935,7 +1042,7 @@
                 date: "Jan 2023 - Present",
                 title: "QA Automation Engineer",
                 company: "KICK",
-                type: "Permanent | Melbourne, Australia",
+                location: "Remote | Australia",
                 details: "Manual testing with livestreaming services. Automation using WebDriverIO, Playwright, and Appium for Web and Mobile applications.",
                 skills: ["WebDriverIO", "Playwright", "Appium", "Live Streaming", "JavaScript"]
             },
@@ -943,7 +1050,7 @@
                 date: "Mar 2025 - Dec 2025",
                 title: "Quality Engineer",
                 company: "Cellid, Inc.",
-                type: "Hybrid | Tokyo, Japan",
+                location: "Tokyo, Japan",
                 details: "Creating automation tests for web applications using Playwright (UI) and API testing. Implementing agile testing practices to ensure application quality and improve release flows.",
                 skills: ["Playwright", "API Testing", "Agile", "Web Testing", "JavaScript"]
             },
@@ -951,7 +1058,7 @@
                 date: "Apr 2023 - Feb 2025",
                 title: "QA Engineer",
                 company: "Apple (via TekSystem)",
-                type: "Contract | Japan",
+                location: "Tokyo, Japan",
                 details: "Manual testing and bug reporting. Creating bash scripts to shorten installation time and automate testing processes.",
                 skills: ["Manual Testing", "Bash Scripting", "iOS Testing", "Bug Reporting", "Automation"]
             },
@@ -959,7 +1066,7 @@
                 date: "Oct 2022 - Mar 2023",
                 title: "QA Architect/Lead",
                 company: "Zurich Insurance",
-                type: "Contract | Remote",
+                location: "Tokyo, Japan",
                 details: "Creating test strategy and plan. Coordinating with different teams for project clarifications and alignment.",
                 skills: ["Test Strategy", "Test Planning", "Team Coordination", "Project Management"]
             },
@@ -967,13 +1074,13 @@
                 date: "Oct 2021 - Oct 2022",
                 title: "QA Analyst",
                 company: "SBI Solutions (via Skillhouse)",
-                type: "Contract | Tokyo, Japan",
+                location: "Tokyo, Japan",
                 details: "Mobile app testing responsibilities including user stories creation using Jira, iOS and web testing.",
                 skills: ["iOS Testing", "Web Testing", "Jira", "User Stories", "Mobile Testing"]
             }
         ];
 
-        // QA Memes and test scenarios - 10 pieces
+        // QA Memes data
         const qaMemes = [
             {
                 specName: "works_on_my_machine.spec.ts",
@@ -1057,13 +1164,13 @@
                 testTime: `${(Math.random() * 5 + 1.5).toFixed(1)}s`
             },
             {
-                specName: "test_case_count.spec.ts",
-                command: "npx playwright test tests/test_case_count.spec.ts --workers=1",
-                emoji: "📋",
-                text: "The difference between 'it works' and 'it works perfectly' is about 1000 test cases.",
-                ascii: "WORKS: ✓\nPERFECTLY: ✓✓✓✓✓✓✓\n          ✓✓✓✓✓✓✓\n          ✓✓✓✓✓✓✓",
+                specName: "flaky_test.spec.ts",
+                command: "npx playwright test tests/flaky_test.spec.ts --retries=2",
+                emoji: "🎲",
+                text: "Flaky tests are just confidence boosters... or destroyers.",
+                ascii: "TEST RUN 1: FAILED ✗\nTEST RUN 2: PASSED ✓\nTEST RUN 3: PASSED ✓",
                 result: Math.random() > 0.3 ? "PASSED" : "FAILED",
-                testTime: `${(Math.random() * 10 + 3).toFixed(1)}s`
+                testTime: `${(Math.random() * 7 + 1).toFixed(1)}s`
             }
         ];
 
