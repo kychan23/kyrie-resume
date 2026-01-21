@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyrie Gean Camacho | Senior QA Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        :root {
+            --primary-dark: #0d1117;
+            --secondary-dark: #161b22;
+            --tertiary-dark: #21262d;
+            --primary-blue: #58a6ff;
+            --secondary-blue: #1f6feb;
+            --apple-blue: #007AFF;
+            --success-green: #4caf50;
+            --warning-orange: #ff9800;
+            --text-primary: #f0f6fc;
+            --text-secondary: #8b949e;
+            --border-color: #30363d;
+            --terminal-green: #7ee787;
+            --terminal-red: #f85149;
+            --accent-purple: #9d7bff;
+            --meme-yellow: #ffd700;
+            --meme-pink: #ff6b9d;
+            --meme-blue: #5d8eff;
+        }
+        
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Particle Canvas */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(13, 17, 23, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--apple-blue);
+        }
+        
+        .logo-text {
+            background: linear-gradient(90deg, var(--apple-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 1rem;
+            position: relative;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--apple-blue);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--apple-blue);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 12rem 0 8rem;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 122, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(157, 123, 255, 0.1) 0%, transparent 50%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--accent-purple);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--apple-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .hero .location {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .hero .location i {
+            color: var(--terminal-red);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            color: var(--text-secondary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-blue);
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            background-color: var(--apple-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            margin-left: 1rem;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--tertiary-dark);
+        }
+        
+        /* Experience Highlights */
+        .experience-highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .experience-card {
+            background-color: var(--secondary-dark);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--apple-blue);
+        }
+        
+        .experience-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--apple-blue);
+        }
+        
+        .experience-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+        
+        /* Technical Skills Terminal */
+        .skills-terminal-container {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            border-radius: 12px;
+            background-color: var(--secondary-dark);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+        
+        .skills-terminal-header {
+            background-color: var(--tertiary-dark);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .skills-terminal-title {
+            font-size: 1.1rem;
+            color: var(--terminal-green);
+            font-weight: 600;
+        }
+        
+        .skills-terminal-body {
+            padding: 2rem;
+            height: calc(100% - 60px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .skill-progress {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: var(--tertiary-dark);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--apple-blue), var(--accent-purple));
+            border-radius: 4px;
+            transition: width 1.5s ease-out;
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .section-title {
+            margin-bottom: 3.5rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--apple-blue), var(--accent-purple));
+            bottom: 0;
+            left: 0;
+        }
+        
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-top: 1rem;
+        }
+        
+        /* Experience Terminal */
+        .experience-terminal-container {
+            background-color: var(--secondary-dark);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        
+        .experience-terminal-header {
+            background-color: var(--tertiary-dark);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .experience-terminal-title {
+            margin-left: auto;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .experience-terminal-body {
+            padding: 1.5rem;
+            font-family: 'SF Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .experience-line {
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--primary-blue);
+            padding-left: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .experience-line:hover {
+            border-left-color: var(--terminal-green);
+            background-color: rgba(33, 38, 45, 0.5);
+            padding-left: 1.5rem;
+        }
+        
+        .experience-date {
+            color: var(--terminal-green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .experience-company {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-details {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .experience-skill-tag {
+            background-color: var(--tertiary-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Combined Terminal (QA Memes Only) */
+        .combined-terminal-section {
+            background-color: var(--secondary-dark);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .combined-terminal-header {
+            background-color: var(--tertiary-dark);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .terminal-button.close {
+            background-color: var(--terminal-red);
+        }
+        
+        .terminal-button.minimize {
+            background-color: var(--warning-orange);
+        }
+        
+        .terminal-button.maximize {
+            background-color: var(--terminal-green);
+        }
+        
+        .combined-terminal-title {
+            color: var(--meme-yellow);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .refresh-terminal {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .refresh-terminal:hover {
+            color: var(--apple-blue);
+            background-color: rgba(0, 122, 255, 0.1);
+        }
+        
+        .combined-terminal-body {
+            padding: 1.5rem;
+            font-family: 'SF Mono', monospace;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            max-height: 500px;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .terminal-line {
+            margin-bottom: 0.5rem;
+            transition: opacity 0.3s;
+        }
+        
+        .terminal-prompt {
+            color: var(--terminal-green);
+        }
+        
+        .terminal-command {
+            color: var(--text-primary);
+        }
+        
+        .terminal-output {
+            color: var(--text-secondary);
+        }
+        
+        .terminal-success {
+            color: var(--terminal-green);
+        }
+        
+        .terminal-error {
+            color: var(--terminal-red);
+        }
+        
+        .playwright-logo {
+            color: var(--success-green);
+            font-weight: bold;
+        }
+        
+        .meme-test-result {
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .meme-ascii {
+            color: var(--meme-yellow);
+            font-family: 'SF Mono', monospace;
+            white-space: pre;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+        
+        .test-passed {
+            background-color: rgba(126, 231, 135, 0.2);
+            color: var(--terminal-green);
+            border: 1px solid rgba(126, 231, 135, 0.3);
+        }
+        
+        .test-failed {
+            background-color: rgba(248, 81, 73, 0.2);
+            color: var(--terminal-red);
+            border: 1px solid rgba(248, 81, 73, 0.3);
+        }
+        
+        .typing-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background-color: var(--terminal-green);
+            margin-left: 2px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .meme-emoji {
+            font-size: 2rem;
+            text-align: center;
+            margin: 0.5rem 0;
+            display: block;
+        }
+        
+        .meme-text {
+            font-style: italic;
+            color: var(--meme-blue);
+            margin: 1rem 0;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        
+        .spec-counter {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background-color: var(--tertiary-dark);
+            padding: 0.2rem 0.8rem;
+            border-radius: 12px;
+            margin-left: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--tertiary-dark);
+            color: var(--text-secondary);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--apple-blue);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .skills-terminal-container {
+                width: 100%;
+            }
+            
+            .experience-highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Canvas -->
+    <div id="particles-js"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-bug"></i>
+                <span class="logo-text">Kyrie Gean Camacho</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Kyrie Gean <span>Camacho</span></h1>
+                <div class="subtitle">Senior QA Engineer | Automation Test Engineer</div>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Melbourne, Australia | Startups & Tech Companies</span>
+                </div>
+                <p>QA engineer with a focus on application quality through comprehensive testing practices and improving release flows through test automation and CI/CD implementation in agile environments.</p>
+                <div>
+                    <a href="#experience" class="btn">View Experience</a>
+                </div>
+                
+                <!-- Experience Highlights -->
+                <div class="experience-highlights">
+                    <div class="experience-card">
+                        <h3>10+ Years Experience</h3>
+                        <p>In QA engineering and test automation across web, mobile, and API testing</p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Agile & Startups</h3>
+                        <p>Experience in fast-paced agile environments and startup culture</p>
+                    </div>
+                    <div class="experience-card">
+                        <h3>Automation Focus</h3>
+                        <p>Specializing in Playwright, WebDriverIO, Appium and CI/CD pipelines</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Skills Terminal -->
+            <div class="skills-terminal-container">
+                <div class="skills-terminal-header">
+                    <div class="skills-terminal-title">Technical Skills Terminal</div>
+                </div>
+                
+                <div class="skills-terminal-body">
+                    <div class="skill-progress">
+                        <div class="skill-name">
+                            <span>Playwright Automation</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="skill-name">
+                            <span>WebDriverIO</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="skill-name">
+                            <span>Appium (Mobile)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="skill-name">
+                            <span>API Testing</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-progress">
+                        <div class="skill-name">
+                            <span>CI/CD Pipelines</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 82%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (Playwright Terminal Style) -->
+    <section id="experience" style="background-color: var(--secondary-dark);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+                <p class="section-subtitle">My professional journey presented as a terminal session.</p>
+            </div>
+            
+            <div class="experience-terminal-container">
+                <div class="experience-terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="experience-terminal-title">experience_terminal.js</div>
+                </div>
+                
+                <div class="experience-terminal-body" id="experience-terminal">
+                    <!-- Experience will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combined Terminal (QA Memes Only) -->
+    <section id="combined-terminal">
+        <div class="container">
+            <div class="section-title">
+                <h2>🤖 Automation — Run, Test, Laugh</h2>
+                <p class="section-subtitle">QA humor presented as Playwright test specs. <span class="spec-counter" id="spec-counter">Spec 1/10</span></p>
+            </div>
+            
+            <div class="combined-terminal-section">
+                <div class="combined-terminal-header">
+                    <div class="terminal-button close"></div>
+                    <div class="terminal-button minimize"></div>
+                    <div class="terminal-button maximize"></div>
+                    <div class="combined-terminal-title">playwright_automation_qa.js</div>
+                    <button class="refresh-terminal" id="refresh-terminal">
+                        <i class="fas fa-redo-alt"></i> Next Spec
+                    </button>
+                </div>
+                
+                <div class="combined-terminal-body" id="combined-terminal-body">
+                    <!-- Terminal content will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">
+                <i class="fas fa-bug"></i>
+                <span class="logo-text">Kyrie Gean Camacho</span>
+            </div>
+            
+            <p>Senior QA Engineer specializing in test automation and agile testing practices.</p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/kyrie-gean-camacho/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/kychan23" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Kyrie Gean Camacho. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Particle.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <script>
+        // Particle Animation Configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: { 
+                    value: 60, 
+                    density: { 
+                        enable: true, 
+                        value_area: 800 
+                    } 
+                },
+                color: { 
+                    value: ["#58a6ff", "#9d7bff", "#007AFF", "#7ee787", "#ffd700", "#ff6b9d"] 
+                },
+                shape: { 
+                    type: "circle" 
+                },
+                opacity: { 
+                    value: 0.5, 
+                    random: true 
+                },
+                size: { 
+                    value: 3, 
+                    random: true 
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 120,
+                    color: "#58a6ff",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1.5,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { 
+                        enable: true, 
+                        mode: "repulse" 
+                    },
+                    onclick: { 
+                        enable: true, 
+                        mode: "push" 
+                    },
+                    resize: true
+                },
+                modes: {
+                    repulse: { 
+                        distance: 100, 
+                        duration: 0.4 
+                    },
+                    push: { 
+                        particles_nb: 6 
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Experience data
+        const experiences = [
+            {
+                date: "Jan 2023 - Present",
+                title: "QA Automation Engineer",
+                company: "KICK",
+                type: "Permanent | Melbourne, Australia",
+                details: "Manual testing with livestreaming services. Automation using WebDriverIO, Playwright, and Appium for Web and Mobile applications.",
+                skills: ["WebDriverIO", "Playwright", "Appium", "Live Streaming", "JavaScript"]
+            },
+            {
+                date: "Mar 2025 - Dec 2025",
+                title: "Quality Engineer",
+                company: "Cellid, Inc.",
+                type: "Hybrid | Tokyo, Japan",
+                details: "Creating automation tests for web applications using Playwright (UI) and API testing. Implementing agile testing practices to ensure application quality and improve release flows.",
+                skills: ["Playwright", "API Testing", "Agile", "Web Testing", "JavaScript"]
+            },
+            {
+                date: "Apr 2023 - Feb 2025",
+                title: "QA Engineer",
+                company: "Apple (via TekSystem)",
+                type: "Contract | Japan",
+                details: "Manual testing and bug reporting. Creating bash scripts to shorten installation time and automate testing processes.",
+                skills: ["Manual Testing", "Bash Scripting", "iOS Testing", "Bug Reporting", "Automation"]
+            },
+            {
+                date: "Oct 2022 - Mar 2023",
+                title: "QA Architect/Lead",
+                company: "Zurich Insurance",
+                type: "Contract | Remote",
+                details: "Creating test strategy and plan. Coordinating with different teams for project clarifications and alignment.",
+                skills: ["Test Strategy", "Test Planning", "Team Coordination", "Project Management"]
+            },
+            {
+                date: "Oct 2021 - Oct 2022",
+                title: "QA Analyst",
+                company: "SBI Solutions (via Skillhouse)",
+                type: "Contract | Tokyo, Japan",
+                details: "Mobile app testing responsibilities including user stories creation using Jira, iOS and web testing.",
+                skills: ["iOS Testing", "Web Testing", "Jira", "User Stories", "Mobile Testing"]
+            }
+        ];
+
+        // QA Memes and test scenarios - 10 pieces
+        const qaMemes = [
+            {
+                specName: "works_on_my_machine.spec.ts",
+                command: "npx playwright test tests/works_on_my_machine.spec.ts --headed",
+                emoji: "🤖",
+                text: "When I said 'it works on my machine', I wasn't lying... I just forgot which machine.",
+                ascii: "(•_•)\n<)   )╯WORKING\n /    \\\n \\(•_•)\n  (   (> ON MY\n  /    \\\n (•_•)\n<)   )> MACHINE\n /    \\",
+                result: Math.random() > 0.3 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 5 + 1).toFixed(1)}s`
+            },
+            {
+                specName: "boundary_testing.spec.ts",
+                command: "npx playwright test tests/boundary_testing.spec.ts",
+                emoji: "🍺",
+                text: "QA Engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 999999 beers...",
+                ascii: "   ____\n  /    \\\n |      |\n  \\____/\n   ||||\n  Boundary\n   Test",
+                result: Math.random() > 0.7 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 3 + 0.5).toFixed(1)}s`
+            },
+            {
+                specName: "random_features.spec.ts",
+                command: "npx playwright test tests/random_features.spec.ts --grep '@feature'",
+                emoji: "🐛",
+                text: "My code doesn't have bugs. It just develops random features.",
+                ascii: "   ╔════════════╗\n   ║ RANDOM     ║\n   ║ FEATURES   ║\n   ║ ACTIVATED  ║\n   ╚════════════╝",
+                result: Math.random() > 0.2 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 4 + 0.8).toFixed(1)}s`
+            },
+            {
+                specName: "undocumented_feature.spec.ts",
+                command: "npx playwright test tests/undocumented_feature.spec.ts",
+                emoji: "📖",
+                text: "It's not a bug, it's an undocumented feature!",
+                ascii: "BUG REPORT:\n[X] Bug\n[ ] Feature\n[✓] Document\n    Later",
+                result: Math.random() > 0.5 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 2 + 0.3).toFixed(1)}s`
+            },
+            {
+                specName: "dark_mode_bugs.spec.ts",
+                command: "npx playwright test tests/dark_mode_bugs.spec.ts --project=chromium",
+                emoji: "🌙",
+                text: "Why do programmers prefer dark mode? Because light attracts bugs!",
+                ascii: "░░░░░░░░░░░░░░░\n░░DARK MODE░░░\n░░NO BUGS░░░░░\n░░░░░░░░░░░░░░░",
+                result: Math.random() > 0.1 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 3 + 0.7).toFixed(1)}s`
+            },
+            {
+                specName: "confidence_test.spec.ts",
+                command: "npx playwright test tests/confidence_test.spec.ts --reporter=html",
+                emoji: "🧪",
+                text: "Me: The test passed! Also me: Did we test it?",
+                ascii: "TEST: PASSED ✓\nCOVERAGE: 0%\nCONFIDENCE: 100%",
+                result: Math.random() > 0.4 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 6 + 1).toFixed(1)}s`
+            },
+            {
+                specName: "prod_3am.spec.ts",
+                command: "npx playwright test tests/prod_3am.spec.ts --timeout=60000",
+                emoji: "😴",
+                text: "When production goes down at 3 AM but tests passed in CI...",
+                ascii: "3 AM:\n🛌 DEV SLEEPING\n🔥 PROD BURNING\n✅ CI PASSING",
+                result: Math.random() > 0.8 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 8 + 2).toFixed(1)}s`
+            },
+            {
+                specName: "self_trust.spec.ts",
+                command: "npx playwright test tests/self_trust.spec.ts",
+                emoji: "🤔",
+                text: "Writing tests for my own code be like: I trust myself... probably.",
+                ascii: "ME: Trust myself\nALSO ME: But what if...\nTESTS: *existential crisis*",
+                result: Math.random() > 0.6 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 4 + 0.9).toFixed(1)}s`
+            },
+            {
+                specName: "qa_presence_bug.spec.ts",
+                command: "npx playwright test tests/qa_presence_bug.spec.ts --headed",
+                emoji: "👀",
+                text: "When the bug only appears when the QA is watching...",
+                ascii: "DEV: Works fine!\nQA: *watches*\nAPP: *crashes*\nDEV: 👁️👄👁️",
+                result: Math.random() > 0.5 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 5 + 1.5).toFixed(1)}s`
+            },
+            {
+                specName: "test_case_count.spec.ts",
+                command: "npx playwright test tests/test_case_count.spec.ts --workers=1",
+                emoji: "📋",
+                text: "The difference between 'it works' and 'it works perfectly' is about 1000 test cases.",
+                ascii: "WORKS: ✓\nPERFECTLY: ✓✓✓✓✓✓✓\n          ✓✓✓✓✓✓✓\n          ✓✓✓✓✓✓✓",
+                result: Math.random() > 0.3 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 10 + 3).toFixed(1)}s`
+            }
+        ];
+
+        let currentMemeIndex = 0;
+        let isAnimating = false;
+
+        // Function to display experiences in terminal style
+        function displayExperiences() {
+            const terminal = document.getElementById('experience-terminal');
+            
+            experiences.forEach((exp, index) => {
+                const experienceLine = document.createElement('div');
+                experienceLine.className = 'experience-line';
+                experienceLine.setAttribute('data-index', index);
+                
+                // Add delay for animation
+                setTimeout(() => {
+                    experienceLine.style.opacity = '1';
+                    experienceLine.style.transform = 'translateY(0)';
+                }, index * 300);
+                
+                experienceLine.innerHTML = `
+                    <div class="experience-date">${exp.date}</div>
+                    <div class="experience-title">${exp.title}</div>
+                    <div class="experience-company">${exp.company} <span style="color: var(--text-secondary); font-size: 0.9rem;">${exp.type}</span></div>
+                    <div class="experience-details">${exp.details}</div>
+                    <div class="experience-skills">
+                        ${exp.skills.map(skill => `<span class="experience-skill-tag">${skill}</span>`).join('')}
+                    </div>
+                `;
+                
+                terminal.appendChild(experienceLine);
+            });
+        }
+
+        // Function to animate skill bars
+        function animateSkillBars() {
+            const skillFills = document.querySelectorAll('.skill-fill');
+            skillFills.forEach(fill => {
+                // Reset width to 0
+                const width = fill.style.width;
+                fill.style.width = '0%';
+                
+                // Animate to actual width after delay
+                setTimeout(() => {
+                    fill.style.width = width;
+                }, 300);
+            });
+        }
+
+        // Function to display a single meme with typing animation
+        function displayMemeWithAnimation(memeIndex) {
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            const terminal = document.getElementById('combined-terminal-body');
+            const meme = qaMemes[memeIndex];
+            
+            // Update counter
+            document.getElementById('spec-counter').textContent = `Spec ${memeIndex + 1}/${qaMemes.length}`;
+            
+            // Clear terminal
+            terminal.innerHTML = '';
+            
+            // Helper function to add lines with delay
+            function addLine(content, delay, className = '') {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        const line = document.createElement('div');
+                        line.className = `terminal-line ${className}`;
+                        line.innerHTML = content;
+                        terminal.appendChild(line);
+                        terminal.scrollTop = terminal.scrollHeight;
+                        resolve();
+                    }, delay);
+                });
+            }
+            
+            // Start animation sequence
+            (async function() {
+                // Command line
+                await addLine(`
+                    <span class="terminal-prompt">$</span>
+                    <span class="terminal-command">${meme.command}</span>
+                    <span class="typing-cursor"></span>
+                `, 500);
+                
+                // Playwright header
+                await addLine(`
+                    <span class="playwright-logo">Playwright</span> Test v1.35.0
+                `, 800, 'terminal-output');
+                
+                await addLine(`
+                    Running 1 test using 1 worker
+                `, 400, 'terminal-output');
+                
+                await addLine(`
+                    <span class="terminal-success">⏳</span> Running test: <span class="terminal-command">${meme.specName}</span>
+                `, 600, 'terminal-output');
+                
+                // Test output
+                await addLine(`
+                    <div class="meme-emoji">${meme.emoji}</div>
+                `, 700, '');
+                
+                await addLine(`
+                    <div class="meme-text">"${meme.text}"</div>
+                `, 900, '');
+                
+                await addLine(`
+                    <div class="meme-ascii">${meme.ascii}</div>
+                `, 1100, '');
+                
+                // Test result
+                const resultClass = meme.result === 'PASSED' ? 'test-passed' : 'test-failed';
+                const resultSymbol = meme.result === 'PASSED' ? '✓' : '✗';
+                
+                await addLine(`
+                    <div class="meme-test-result ${resultClass}">
+                        ${resultSymbol} ${meme.result} - ${meme.specName} (${meme.testTime})
+                    </div>
+                `, 1300, '');
+                
+                // Summary
+                await addLine(`
+                    ----------------------------------------
+                `, 1500, 'terminal-output');
+                
+                await addLine(`
+                    ${meme.result === 'PASSED' ? 
+                        '<span class="terminal-success">✓</span> 1 passed' : 
+                        '<span class="terminal-error">✗</span> 1 failed'} (${meme.testTime})
+                `, 1700, 'terminal-output');
+                
+                // Next command prompt
+                await addLine(`
+                    <span class="terminal-prompt">$</span>
+                    <span class="typing-cursor"></span>
+                `, 2000);
+                
+                isAnimating = false;
+            })();
+        }
+
+        // Function to get next meme index
+        function getNextMemeIndex() {
+            currentMemeIndex = (currentMemeIndex + 1) % qaMemes.length;
+            return currentMemeIndex;
+        }
+
+        // Initialize content on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            displayExperiences();
+            animateSkillBars();
+            
+            // Start with a random meme
+            currentMemeIndex = Math.floor(Math.random() * qaMemes.length);
+            displayMemeWithAnimation(currentMemeIndex);
+            
+            // Set up refresh button
+            document.getElementById('refresh-terminal').addEventListener('click', function() {
+                if (!isAnimating) {
+                    displayMemeWithAnimation(getNextMemeIndex());
+                }
+            });
+            
+            // Auto-refresh terminal every 20 seconds
+            setInterval(() => {
+                if (!isAnimating) {
+                    displayMemeWithAnimation(getNextMemeIndex());
+                }
+            }, 20000);
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Update active nav on scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY + 100;
+            
+            const header = document.querySelector('header');
+            if (scrollPosition > 100) {
+                header.style.backgroundColor = 'rgba(13, 17, 23, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = 'rgba(13, 17, 23, 0.9)';
+            }
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
