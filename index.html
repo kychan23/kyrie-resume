@@ -1083,15 +1083,6 @@
         // QA Memes data
         const qaMemes = [
             {
-                specName: "works_on_my_machine.spec.ts",
-                command: "npx playwright test tests/works_on_my_machine.spec.ts --headed",
-                emoji: "🤖",
-                text: "When I said 'it works on my machine', I wasn't lying... I just forgot which machine.",
-                ascii: "(•_•)\n<)   )╯WORKING\n /    \\\n \\(•_•)\n  (   (> ON MY\n  /    \\\n (•_•)\n<)   )> MACHINE\n /    \\",
-                result: Math.random() > 0.3 ? "PASSED" : "FAILED",
-                testTime: `${(Math.random() * 5 + 1).toFixed(1)}s`
-            },
-            {
                 specName: "boundary_testing.spec.ts",
                 command: "npx playwright test tests/boundary_testing.spec.ts",
                 emoji: "🍺",
@@ -1171,6 +1162,59 @@
                 ascii: "TEST RUN 1: FAILED ✗\nTEST RUN 2: PASSED ✓\nTEST RUN 3: PASSED ✓",
                 result: Math.random() > 0.3 ? "PASSED" : "FAILED",
                 testTime: `${(Math.random() * 7 + 1).toFixed(1)}s`
+            },
+            {                
+                specName: "ui_glitch_test.spec.ts",
+                command: "npx playwright test tests/ui_glitch_test.spec.ts --project=webkit",
+                emoji: "🖥️",
+                text: "That moment when the UI glitches only on your machine...",
+                ascii: "UI STATE:\n[ ] Normal\n[ ] Glitched\n[X] Only on MY machine",
+                result: Math.random() > 0.2 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 4 + 0.6).toFixed(1)}s`
+            },
+            {                
+                specName: "security_vulnerability_test.spec.ts",
+                command: "npx playwright test tests/security_vulnerability_test.spec.ts",
+                emoji: "🔒",
+                text: "When your security tests pass but you still feel vulnerable...",
+                ascii: "SECURITY CHECK:\n[✓] SQL Injection\n[✓] XSS\n[✓] CSRF\nME: Still worried...",
+                result: Math.random() > 0.5 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 7 + 1).toFixed(1)}s`
+            },
+            {                
+                specName: "load_testing.spec.ts",
+                command: "npx playwright test tests/load_testing.spec.ts --workers=4",
+                emoji: "🏋️‍♂️",
+                text: "When your app handles load testing better than your own stress levels...",
+                ascii: "LOAD TEST:\n[||||||||||] 100%\nAPP: Stable ✓\nME: Overloaded...",
+                result: Math.random() > 0.2 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 8 + 1).toFixed(1)}s`
+            },
+            {                specName: "ui_responsiveness_test.spec.ts",
+                command: "npx playwright test tests/ui_responsiveness_test.spec.ts --project=mobile",
+                emoji: "📱",
+                text: "When your UI is responsive but your coffee isn't...",
+                ascii: "UI RESPONSIVENESS:\n[✓] Mobile\n[✓] Tablet\n[✓] Desktop\nME: Need coffee...",
+                result: Math.random() > 0.3 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 5 + 0.5).toFixed(1)}s`
+            },
+            {      
+                specName: "data_integrity_test.spec.ts",
+                command: "npx playwright test tests/data_integrity_test.spec.ts",
+                emoji: "💾",
+                text: "When your data integrity tests pass but your database is still corrupt...",
+                ascii: "DATA INTEGRITY:\n[✓] Checks Passed\nDATABASE: Corrupted\nME: Confused...",
+                result: Math.random() > 0.4 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 6 + 1).toFixed(1)}s`
+            },
+            {              
+                specName: "integration_test.spec.ts",
+                command: "npx playwright test tests/integration_test.spec.ts",
+                emoji: "🔗",
+                text: "When your integration tests pass but your modules still don't talk to each other...",
+                ascii: "INTEGRATION:\n[✓] Module A\n[✓] Module B\nCOMMUNICATION: Silent...",
+                result: Math.random() > 0.2 ? "PASSED" : "FAILED",
+                testTime: `${(Math.random() * 5 + 1).toFixed(1)}s`
             }
         ];
 
@@ -1195,7 +1239,7 @@
                 experienceLine.innerHTML = `
                     <div class="experience-date">${exp.date}</div>
                     <div class="experience-title">${exp.title}</div>
-                    <div class="experience-company">${exp.company} <span style="color: var(--text-secondary); font-size: 0.9rem;">${exp.type}</span></div>
+                    <div class="experience-company">${exp.company} <span style="color: var(--text-secondary); font-size: 0.9rem;">${exp.location}</span></div>
                     <div class="experience-details">${exp.details}</div>
                     <div class="experience-skills">
                         ${exp.skills.map(skill => `<span class="experience-skill-tag">${skill}</span>`).join('')}
