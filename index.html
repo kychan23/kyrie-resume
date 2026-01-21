@@ -252,7 +252,7 @@
             margin-bottom: 0;
         }
         
-        /* Technical Skills Terminal */
+        /* Technical Skills */
         .skills-terminal-container {
             flex: 1;
             position: relative;
@@ -825,10 +825,10 @@
                 </div>
             </div>
             
-            <!-- Technical Skills Terminal -->
+            <!-- Technical Skills -->
             <div class="skills-terminal-container">
                 <div class="skills-terminal-header">
-                    <div class="skills-terminal-title">Technical Skills Terminal</div>
+                    <div class="skills-terminal-title">Top Technical Skills</div>
                 </div>
                 
                 <div class="skills-terminal-body">
@@ -899,7 +899,7 @@
                     <div class="terminal-button close"></div>
                     <div class="terminal-button minimize"></div>
                     <div class="terminal-button maximize"></div>
-                    <div class="experience-terminal-title">experience_terminal.js</div>
+                    <div class="experience-terminal-title">experience_terminal.tsx</div>
                 </div>
                 
                 <div class="experience-terminal-body" id="experience-terminal">
@@ -928,14 +928,11 @@
             </div>
             
             <div class="combined-terminal-section">
-                <div class="combined-terminal-header">
+                <div class="experience-terminal-header">
                     <div class="terminal-button close"></div>
                     <div class="terminal-button minimize"></div>
                     <div class="terminal-button maximize"></div>
-                    <div class="combined-terminal-title">playwright_automation_qa.js</div>
-                    <button class="refresh-terminal" id="refresh-terminal">
-                        <i class="fas fa-redo-alt"></i> Next Spec
-                    </button>
+                    <div class="experience-terminal-title" id="refresh-terminal">qa_overload.tsx</div>
                 </div>
                 
                 <div class="combined-terminal-body" id="combined-terminal-body">
@@ -960,7 +957,7 @@
             </div>
             
             <div class="copyright">
-                &copy; Kyrie QA. All rights reserved.
+                &copy; 日本語上手ですね. All rights reserved.
             </div>
         </div>
     </footer>
@@ -1042,8 +1039,8 @@
                 date: "Jan 2023 - Present",
                 title: "QA Automation Engineer",
                 company: "KICK",
-                location: "Remote | Australia",
-                details: "Manual testing with livestreaming services. Automation using WebDriverIO, Playwright, and Appium for Web and Mobile applications.",
+                location: "Melbourne, Australia",
+                details: "Performed manual testing for livestreaming services and developed automation scripts for Web and Mobile applications using WebDriverIO, Playwright, and Appium.",
                 skills: ["WebDriverIO", "Playwright", "Appium", "Live Streaming", "JavaScript"]
             },
             {
@@ -1051,15 +1048,15 @@
                 title: "Quality Engineer",
                 company: "Cellid, Inc.",
                 location: "Tokyo, Japan",
-                details: "Creating automation tests for web applications using Playwright (UI) and API testing. Implementing agile testing practices to ensure application quality and improve release flows.",
+                details: "Developed automation tests for web applications using Playwright (UI and API), applying agile testing practices to ensure high-quality releases and streamline deployment processes.",
                 skills: ["Playwright", "API Testing", "Agile", "Web Testing", "JavaScript"]
             },
             {
                 date: "Apr 2023 - Feb 2025",
                 title: "QA Engineer",
-                company: "Apple (via TekSystem)",
+                company: "Apple Inc. (via TekSystems)",
                 location: "Tokyo, Japan",
-                details: "Manual testing and bug reporting. Creating bash scripts to shorten installation time and automate testing processes.",
+                details: "Performed manual testing and bug reporting, while developing Bash scripts to streamline installation and automate repetitive testing tasks, improving efficiency and reducing setup time.",
                 skills: ["Manual Testing", "Bash Scripting", "iOS Testing", "Bug Reporting", "Automation"]
             },
             {
@@ -1067,7 +1064,7 @@
                 title: "QA Architect/Lead",
                 company: "Zurich Insurance",
                 location: "Tokyo, Japan",
-                details: "Creating test strategy and plan. Coordinating with different teams for project clarifications and alignment.",
+                details: "Developed comprehensive test strategies and plans to ensure project quality, coordinating with cross-functional teams to clarify requirements and align objectives.",
                 skills: ["Test Strategy", "Test Planning", "Team Coordination", "Project Management"]
             },
             {
@@ -1075,7 +1072,7 @@
                 title: "QA Analyst",
                 company: "SBI Solutions (via Skillhouse)",
                 location: "Tokyo, Japan",
-                details: "Mobile app testing responsibilities including user stories creation using Jira, iOS and web testing.",
+                details: "Responsible for mobile app testing, including creating and managing user stories in Jira, and performing thorough iOS and web testing to ensure application quality and reliability.",
                 skills: ["iOS Testing", "Web Testing", "Jira", "User Stories", "Mobile Testing"]
             }
         ];
@@ -1373,13 +1370,6 @@
             // Start with a random meme
             currentMemeIndex = Math.floor(Math.random() * qaMemes.length);
             displayMemeWithAnimation(currentMemeIndex);
-            
-            // Set up refresh button
-            document.getElementById('refresh-terminal').addEventListener('click', function() {
-                if (!isAnimating) {
-                    displayMemeWithAnimation(getNextMemeIndex());
-                }
-            });
             
             // Auto-refresh terminal every 20 seconds
             setInterval(() => {
